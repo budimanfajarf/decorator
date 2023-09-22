@@ -18,20 +18,22 @@ const Reverse = (target: any, provertyKey: string, descriptor: PropertyDescripto
   };
 };
 
-const Join = (target: any, provertyKey: string, descriptor: PropertyDescriptor) => {
-  const originalMethod = descriptor.value;
+const Join =
+  (separator = '') =>
+  (target: any, provertyKey: string, descriptor: PropertyDescriptor) => {
+    const originalMethod = descriptor.value;
 
-  descriptor.value = function (...args: any[]) {
-    const [arg] = args;
-    const joined = arg.join('');
-    originalMethod.apply(this, [joined]);
+    descriptor.value = function (...args: any[]) {
+      const [arg] = args;
+      const joined = arg.join(separator);
+      originalMethod.apply(this, [joined]);
+    };
   };
-};
 
 class StringManager {
   @Split
   @Reverse
-  @Join
+  @Join('-')
   print(str: string) {
     console.log(str);
   }

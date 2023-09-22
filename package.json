@@ -1,0 +1,12 @@
+{
+  "name": "decorator",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/budimanfajarf/decorator",
+  "author": "budimanfajarf",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "typescript": "^5.2.2"
+  }
+}
